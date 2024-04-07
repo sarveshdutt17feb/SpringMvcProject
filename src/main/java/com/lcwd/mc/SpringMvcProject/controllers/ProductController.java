@@ -1,8 +1,6 @@
 package com.lcwd.mc.SpringMvcProject.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ProductController {
@@ -15,5 +13,13 @@ public class ProductController {
         System.out.println("productId "+id);
 
         return "this is testing product url";
+    }
+
+    @RequestMapping("/checkProduct/{productId}/{productName}/{productRating}")
+    public String checkProduct(@PathVariable("productId")int id,@PathVariable("productRating")int rating,@PathVariable("productName")String name){
+        System.out.println("productName "+name);
+        System.out.println("productId "+id);
+        System.out.println("productrating "+rating);
+        return "this is checking the concept of path variable";
     }
 }
