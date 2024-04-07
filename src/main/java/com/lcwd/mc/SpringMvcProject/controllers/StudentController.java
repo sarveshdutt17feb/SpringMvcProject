@@ -1,6 +1,8 @@
 package com.lcwd.mc.SpringMvcProject.controllers;
 
 import com.lcwd.mc.SpringMvcProject.models.Student;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +22,7 @@ public class StudentController {
     //java object ---> json ===> serialization
     //springboot handles serialization with the help of (i.e all is being done by jackson)
     @PostMapping("/create")
-    public Student createStudent(@RequestBody List<Student> students){
+    public ResponseEntity<Student> createStudent(@RequestBody List<Student> students){
 
         System.out.println(students.size());
         System.out.println(students.get(0));
@@ -28,6 +30,10 @@ public class StudentController {
 //        Map<String,Object> data = new HashMap<>();
 //        data.put("content",students);
 //        data.put("date",new Date());
-        return students.get(0);
+        Student student = students.get(0);
+        student.setDept("Test");
+//        ResponseEntity<Student> response = new ResponseEntity<>(student, HttpStatus.CREATED);
+        ResponseEntity<Student> response = ResponseEntity.status(HttpStatus.OK).body(student);
+        return response;
     }
 }
