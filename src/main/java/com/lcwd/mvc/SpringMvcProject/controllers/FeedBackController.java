@@ -1,4 +1,4 @@
-package com.lcwd.mc.SpringMvcProject.controllers;
+package com.lcwd.mvc.SpringMvcProject.controllers;
 
 import org.springframework.web.bind.annotation.*;
 

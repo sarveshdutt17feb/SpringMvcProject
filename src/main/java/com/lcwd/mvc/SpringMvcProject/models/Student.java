@@ -1,4 +1,4 @@
-package com.lcwd.mc.SpringMvcProject.models;
+package com.lcwd.mvc.SpringMvcProject.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
